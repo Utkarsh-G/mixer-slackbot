@@ -1,0 +1,16 @@
+{
+  "name": "slack-mixer",
+  "version": "0.1.0",
+  "description": "shuffles users in a channel",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc index.ts && node index.js"
+  },
+  "author": "Utkarsh Gaur",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/events-api": "^2.3.3",
+    "@slack/web-api": "^5.10.0",
+    "dotenv": "^8.2.0"
+  }
+}
