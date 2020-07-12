@@ -55,7 +55,7 @@ const currentTime =  new Date().toTimeString();
 // generally want groups of 5. 5 + 1 = 3 + 3
 // 5 + 2 = 4 + 3, 5 + 3 = 4 + 4, 5 + 4 = 5 + 4
 // so, 1>2>3, then 1>2>3, then 4,3 then 4,4 then 5,4 
-let mix_users = members => {
+const mix_users = members => {
     members = shuffle(members)
     const groups = []
     members.forEach((member, index) => {
@@ -63,6 +63,16 @@ let mix_users = members => {
             groups.push([member])
         else groups [Math.floor(index/5)].push(member)
     });
+
+    final_group_index = Math.floor(members.length/5)
+
+    if (final_group_index > 0 && groups[final_group_index].length < 3) {
+        groups[final_group_index].push(groups[final_group_index-1].pop())
+    }
+
+    if (final_group_index > 0 && groups[final_group_index].length < 3) {
+        groups[final_group_index].push(groups[final_group_index-1].pop())
+    }
 
     return groups
 }
